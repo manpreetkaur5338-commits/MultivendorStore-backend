@@ -2,11 +2,11 @@ import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import productroutes from "./routes/Productroutes.js";
-import authroutes from "./routes/authroutes.js";
-import categoryroutes from "./routes/categoryroutes.js";
-import orderroutes from "./routes/orderroutes.js";
-import adminroutes from "./routes/adminroutes.js";
+import productrouter from "./routes/productroutes.js" 
+import router from "./routes/authroutes.js";
+import categoryRouter from "./routes/categoryroutes.js";
+import orderRouter from "./routes/orderroutes.js";
+import adminRouter from "./routes/adminroutes.js";
 
 const app = express();
 
@@ -15,11 +15,11 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/auth", authroutes);
-app.use("/api/products", productroutes);
-app.use("/api/categories", categoryroutes);
-app.use("/api/orders", orderroutes);
-app.use("/api/admin", adminroutes);
+app.use("/api/auth", router);
+app.use("/api/products", productrouter);
+app.use("/api/categories", categoryRouter);
+app.use("/api/orders", orderRouter);
+app.use("/api/admin", adminRouter);
 
 // Home API
 app.get("/", (req, res) => {
